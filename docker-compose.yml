@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  jenkins_test:
+    build:
+      context: .
+      dockerfile: Dockerfile    
+    environment:
+      JAVA_OPTS: -Djenkins.install.runSetupWizard=false
+      JENKINS_OPTS: --argumentsRealm.roles.user=admin --argumentsRealm.passwd.admin=admin --argumentsRealm.roles.admin=admin
+      CASC_SSM_PREFIX: /jenkins/test/ 
+      CASC_JENKINS_CONFIG: /var/jenkins_home/jcasc
+    volumes:
+      - /home/ec2-user/jenkins/jenkins_home:/var/jenkins_home
+    ports:
+      - "8080:8080" 

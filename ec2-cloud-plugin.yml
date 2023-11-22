@@ -1,0 +1,40 @@
+clouds:
+  - amazonEC2:
+      name: "test-agent"
+      region: "eu-west-1"
+      sshKeysCredentialsId: "jenkins-agent-ssh-key"
+      templates:
+      - ami: "ami-07355fe79b493752d"
+        amiType:
+          unixData:
+            sshPort: "22"
+        associatePublicIp: false
+        connectBySSHProcess: false
+        connectionStrategy: PRIVATE_IP
+        deleteRootOnTermination: false
+        description: "java-11"
+        ebsEncryptRootVolume: DEFAULT
+        ebsOptimized: false
+        hostKeyVerificationStrategy: CHECK_NEW_HARD
+        idleTerminationMinutes: "30"
+        javaPath: "java"
+        labelString: "java-11"
+        maxTotalUses: -1
+        metadataEndpointEnabled: true
+        metadataHopsLimit: 1
+        metadataSupported: true
+        metadataTokensRequired: false
+        minimumNumberOfInstances: 0
+        minimumNumberOfSpareInstances: 0
+        mode: NORMAL
+        monitoring: false
+        numExecutors: 1
+        spotConfig:
+          fallbackToOndemand: true
+          useBidPrice: false
+        stopOnTerminate: false
+        t2Unlimited: false
+        tenancy: Default
+        type: T2Micro
+        useEphemeralDevices: false
+      useInstanceProfileForCredentials: true
