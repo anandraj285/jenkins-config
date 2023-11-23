@@ -1,0 +1,34 @@
+---
+jobs:
+  - script: >        
+          pipelineJob('node-app-build-pipeline') {
+              definition {
+                  cpsScm {
+                      scm {
+                          git {
+                              remote {
+                                  url 'git@github.com:anandraj285/simple-node-app.git'
+                                  credentials 'jenkins-ssh-key'
+                              }
+                              branch '*/main'
+                          }
+                      }
+                      scriptPath 'Jenkinsfile'
+                      lightweight ()
+                  }
+              }
+              throttleConcurrentBuilds {
+                  maxTotal(1)
+              }
+              logRotator {
+                  numToKeep 15
+              }
+               properties {
+                disableConcurrentBuilds()
+                pipelineTriggers {
+                    triggers {
+                        githubPush()
+                    }
+                }
+            }
+          }

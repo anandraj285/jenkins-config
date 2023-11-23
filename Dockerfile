@@ -17,7 +17,8 @@ RUN apt-get update && apt-get -y --allow-unauthenticated install \
     python3-pip \
     python3-boto3 \
     python3 \
-    wget
+    wget \
+    awscli
 
 
 
