@@ -18,7 +18,8 @@ RUN apt-get update && apt-get -y --allow-unauthenticated install \
     python3-boto3 \
     python3 \
     wget \
-    awscli
+    awscli \
+    zip
 
 
 

@@ -23,3 +23,4 @@ git-client
 github
 git-parameter
 nodejs
+job-dsl

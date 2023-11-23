@@ -23,12 +23,5 @@ jobs:
               logRotator {
                   numToKeep 15
               }
-               properties {
-                disableConcurrentBuilds()
-                pipelineTriggers {
-                    triggers {
-                        githubPush()
-                    }
-                }
-            }
+              
           }
